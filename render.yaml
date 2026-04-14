@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: zerodha-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: MONGO_URL
+        sync: false
+
+  - type: static
+    name: zerodha-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm start
+    staticPublishPath: build
+
+  - type: static
+    name: zerodha-dashboard
+    rootDir: dashboard
+    buildCommand: npm install && npm start
+    staticPublishPath: build
