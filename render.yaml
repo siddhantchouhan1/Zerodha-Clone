@@ -1,0 +1,30 @@
+services:
+  # 🔹 Backend API
+  - type: web
+    name: zerodha-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: MONGO_URL
+        sync: false
+
+  # 🔹 Frontend (Main Website)
+  - type: web
+    name: zerodha-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+
+  # 🔹 Dashboard (Admin Panel / Trading UI)
+  - type: web
+    name: zerodha-dashboard
+    env: static
+    plan: free
+    rootDir: dashboard
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
