@@ -1,5 +1,5 @@
 services:
-  # 🔹 Backend API
+  # 🔹 Backend API (Node server)
   - type: web
     name: zerodha-backend
     env: node
@@ -11,20 +11,16 @@ services:
       - key: MONGO_URL
         sync: false
 
-  # 🔹 Frontend (Main Website)
-  - type: web
+  # 🔹 Frontend (Static site)
+  - type: static
     name: zerodha-frontend
-    env: static
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: build
 
-  # 🔹 Dashboard (Admin Panel / Trading UI)
-  - type: web
+  # 🔹 Dashboard (Static site)
+  - type: static
     name: zerodha-dashboard
-    env: static
-    plan: free
     rootDir: dashboard
     buildCommand: npm install && npm run build
     staticPublishPath: build
