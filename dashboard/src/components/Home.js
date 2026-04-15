@@ -9,18 +9,18 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3002/", {}, { withCredentials: true })
+      .post("https://zerodha-backend-mhhn.onrender.com/", {}, { withCredentials: true })
       .then((res) => {
         if (res.data.status) {
           setIsAuth(true);
         } else {
           setIsAuth(false);
-          window.location.href = "http://localhost:3000/login"; // 👈 redirect
+          window.location.href = "https://zerodha-clone-a6lg.onrender.com/login"; // 👈 redirect
         }
       })
       .catch(() => {
         setIsAuth(false);
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = "https://zerodha-clone-a6lg.onrender.com/login";
       });
   }, []);
 
