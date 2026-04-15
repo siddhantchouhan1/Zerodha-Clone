@@ -18,7 +18,7 @@ const Menu = () => {
   // ✅ USER FETCH
   useEffect(() => {
     axios
-      .post("http://localhost:3002/", {}, { withCredentials: true })
+      .post("https://zerodha-backend-mhhn.onrender.com/", {}, { withCredentials: true })
       .then((res) => {
         if (res.data.status) {
           setUsername(res.data.user);
@@ -31,13 +31,13 @@ const Menu = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3002/logout",
+        "https://zerodha-backend-mhhn.onrender.com/logout",
         {},
         { withCredentials: true }
       );
 
       // redirect to login
-      window.location.href = "http://localhost:3000/login";
+      window.location.href = "https://zerodha-clone-a6lg.onrender.com/login";
     } catch (err) {
       console.log(err);
     }
