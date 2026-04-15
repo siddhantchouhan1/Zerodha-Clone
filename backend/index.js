@@ -20,7 +20,9 @@ app.use(
   cors({
     origin:  [
       "http://localhost:3000", // frontend
-      "http://localhost:3001"  // dashboard
+      "http://localhost:3001", // dashboard
+      "https://zerodha-clone-a6lg.onrender.com",
+      "https://zerodha-dashboard-b19e.onrender.com"
     ],
     credentials: true,
   })
