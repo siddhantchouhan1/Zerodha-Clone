@@ -136,7 +136,7 @@ const WatchListActions = ({ uid }) => {
     try {
       setLoading(true);
 
-      const response = await axios.post("http://localhost:3002/newOrder", {
+      const response = await axios.post("https://zerodha-backend-mhhn.onrender.com/newOrder", {
         name: uid,
         qty: 1, 
         price: 100, 
