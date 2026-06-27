@@ -42,7 +42,7 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "https://zerodha-dashboard-b19e.onrender.com";
+window.location.assign("https://zerodha-dashboard-b19e.onrender.com");
         }, 1000);
       } else {
         handleError(message);
