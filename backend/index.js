@@ -14,7 +14,7 @@ const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
 const { FundsModel } = require("./models/FundsModel");
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+
 
 app.use(cookieParser());
 app.use(express.json());
@@ -163,11 +163,7 @@ main()
 async function main() {
   await mongoose.connect(uri);
 };
-app.get(/.*/, (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../frontend/build", "index.html")
-  );
-});
+
 
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
